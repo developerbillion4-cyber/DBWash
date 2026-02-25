@@ -221,26 +221,26 @@ function ServicesSection() {
 }
 
 function GallerySection() {
-  const images = [
+  const comparisons = [
     {
-      src: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2670&auto=format&fit=crop",
-      label: "Before",
-      type: "dirty"
+      before: "https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=2071&auto=format&fit=crop",
+      after: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=2669&auto=format&fit=crop",
+      title: "Exterior Detail"
     },
     {
-      src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2670&auto=format&fit=crop",
-      label: "After",
-      type: "clean"
+      before: "https://images.unsplash.com/photo-1607223565812-df9df8033620?q=80&w=2070&auto=format&fit=crop",
+      after: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2670&auto=format&fit=crop",
+      title: "SUV Deep Clean"
     },
     {
-      src: "https://images.unsplash.com/photo-1552085731-e2dd0c58e136?q=80&w=2574&auto=format&fit=crop",
-      label: "Before",
-      type: "dirty"
+      before: "https://images.unsplash.com/photo-1597766333691-b6c91e44474a?q=80&w=2069&auto=format&fit=crop",
+      after: "https://images.unsplash.com/photo-1552085731-e2dd0c58e136?q=80&w=2574&auto=format&fit=crop",
+      title: "Sedan Refresh"
     },
     {
-      src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2670&auto=format&fit=crop",
-      label: "After",
-      type: "clean"
+      before: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070&auto=format&fit=crop",
+      after: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1983&auto=format&fit=crop",
+      title: "Luxury Polish"
     }
   ];
 
@@ -250,33 +250,44 @@ function GallerySection() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading 
-          title="See the Difference" 
-          subtitle="Real results from our premium detailing services. Swipe to see the transformation." 
+          title="Real Results — Before & After" 
+          subtitle="Witness the transformation. Our premium detailing brings back that new car feeling." 
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-          {images.map((image, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {comparisons.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative group rounded-3xl overflow-hidden aspect-[4/3] md:aspect-video bg-card"
+              className="space-y-4"
             >
-              <img 
-                src={image.src} 
-                alt={`${image.label} Car Wash`} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-              
-              <div className={`absolute bottom-6 left-6 px-4 py-2 rounded-lg font-bold tracking-widest uppercase text-sm ${
-                image.label === 'After' 
-                  ? 'bg-primary text-primary-foreground' 
-                  : 'bg-destructive text-destructive-foreground'
-              }`}>
-                {image.label}
+              <h3 className="text-xl font-bold text-white/90 px-2 border-l-2 border-primary ml-1">{item.title}</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Before Card */}
+                <div className="relative group rounded-2xl overflow-hidden aspect-video bg-card border border-white/5">
+                  <img 
+                    src={item.before} 
+                    alt="Before Car Wash" 
+                    className="w-full h-full object-cover grayscale-[0.3] brightness-90 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3 bg-destructive/90 text-white text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded backdrop-blur-sm">
+                    BEFORE
+                  </div>
+                </div>
+                {/* After Card */}
+                <div className="relative group rounded-2xl overflow-hidden aspect-video bg-card border border-primary/20 box-glow-sm">
+                  <img 
+                    src={item.after} 
+                    alt="After Car Wash" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3 bg-primary/90 text-white text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded backdrop-blur-sm">
+                    AFTER
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
