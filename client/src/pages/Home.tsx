@@ -223,23 +223,31 @@ function ServicesSection() {
 function GallerySection() {
   const comparisons = [
     {
-      before: "https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=2071&auto=format&fit=crop",
-      after: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=2669&auto=format&fit=crop",
-      title: "Exterior Detail"
+      before: 
+"images/before1.jpg",  
+      after: 
+"images/after1.jpg",
+      title: "Full cleaning"
     },
     {
-      before: "https://images.unsplash.com/photo-1607223565812-df9df8033620?q=80&w=2070&auto=format&fit=crop",
-      after: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2670&auto=format&fit=crop",
+      before: 
+"images/before2.jpg",
+      after: 
+"images/after2.jpg",
       title: "SUV Deep Clean"
     },
     {
-      before: "https://images.unsplash.com/photo-1597766333691-b6c91e44474a?q=80&w=2069&auto=format&fit=crop",
-      after: "https://images.unsplash.com/photo-1552085731-e2dd0c58e136?q=80&w=2574&auto=format&fit=crop",
+      before: 
+"images/before3.jpg",
+      after: 
+"images/after3.jpg",
       title: "Sedan Refresh"
     },
     {
-      before: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070&auto=format&fit=crop",
-      after: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1983&auto=format&fit=crop",
+      before: 
+"images/before4.jpg",
+      after: 
+"images/after4.jpg",
       title: "Luxury Polish"
     }
   ];
